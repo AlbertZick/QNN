@@ -49,23 +49,20 @@ def M2Q(x):
 
 
 def mul_Q(a, b):
-  result = np.zeros((4, 1), dtype=np.float64)
+  rst = np.zeros((4, 1), dtype=np.float64)
 
-  result[0,0] = a[0,0]*b[0,0] - a[1,0]*b[1,0] - a[2,0]*b[2,0] - a[3,0]*b[3,0]
-  result[1,0] = a[1,0]*b[0,0] + a[0,0]*b[1,0] - a[3,0]*b[2,0] + a[2,0]*b[3,0]
-  result[2,0] = a[2,0]*b[0,0] + a[3,0]*b[1,0] + a[0,0]*b[2,0] - a[1,0]*b[3,0]
-  result[3,0] = a[3,0]*b[0,0] - a[2,0]*b[1,0] + a[1,0]*b[2,0] + a[0,0]*b[3,0]
+  rst[0,0] = a[0,0]*b[0,0] - a[1,0]*b[1,0] - a[2,0]*b[2,0] - a[3,0]*b[3,0]
+  rst[1,0] = a[1,0]*b[0,0] + a[0,0]*b[1,0] - a[3,0]*b[2,0] + a[2,0]*b[3,0]
+  rst[2,0] = a[2,0]*b[0,0] + a[3,0]*b[1,0] + a[0,0]*b[2,0] - a[1,0]*b[3,0]
+  rst[3,0] = a[3,0]*b[0,0] - a[2,0]*b[1,0] + a[1,0]*b[2,0] + a[0,0]*b[3,0]
 
-  return result
+  return rst
 
 def RotateMatrix(x):
   # https://en.wikipedia.org/wiki/Quaternions_and_spatial_rotation
   s = 1 / ( abs_Q(x)*abs_Q(x) )
   R = np.zeros((3,3), dtype=np.float64)
-  r = 0
-  i = 1
-  j = 2
-  k = 3
+  r, i, j, k = 0, 1, 2, 3
 
   R[0,0] =  1 - 2*s*( x[j,0]**2 + x[k,0]**2 )
   R[0,1] =  2*s*( x[i,0]*x[j,0] - x[k,0]*x[r,0] )
@@ -81,7 +78,24 @@ def RotateMatrix(x):
 
   return R
 
+def RotateMatrixPolar (theta):
+  R = np.zeros((3,3), dtype=np.float64)
+  f1 = 1/3 + 2/3 * np.cos(theta)
+  f2 = 1/3 - 2/3 * np.cos(theta - np.pi/3)
+  f3 = 1/3 - 2/3 * np.cos(theta + np.pi/3)
+  R[0,0] = f1
+  R[0,1] = f2
+  R[0,2] = f3
 
+  R[1,0] = f3
+  R[1,1] = f1
+  R[1,2] = f2
+
+  R[2,0] = f2
+  R[2,1] = f3
+  R[2,2] = f1
+
+  return R
 
 
 
