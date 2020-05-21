@@ -2,3 +2,4 @@ Sony/
 __pycache__/
 
 *.png
+*.log

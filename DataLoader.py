@@ -4,19 +4,35 @@ import matplotlib.pyplot as plt
 import os
 import random
 
-
-
 class Printer:
-   def __init__(self, max_len=120):
+   def __init__(self, logFile='log.log', max_len=120):
       self.max_len = max_len
+      self.logFile = logFile
+      self.crtlogFile = True
+      self.nextLine = True
 
-   def show(data, new=False, max_len=120):
-      print (''.join([' ']*max_len), end='\r')
+   def show(self, data, new=False):
+      print (''.join([' ']*self.max_len), end='\r')
       String = str(data)
       if new:
+         if self.nextLine:
+            print('',end='\n')
+            self.nextLine = False
+
          print(String, end='\n')
+         if self.crtlogFile:
+            file = open(self.logFile, 'w')
+            file.write(String+'\n')
+            file.close()
+            self.crtlogFile = False
+         else:
+            file = open(self.logFile, 'a')
+            file.write(String+'\n')
+            file.close()
+
       else:
-         print (String + ''.join([' ']*(max_len-len(String))), end='\r')
+         print (String + ''.join([' ']*(self.max_len-len(String))), end='\r')
+         self.nextLine = True
 
 
 def viewImage(data, save=False):
@@ -31,7 +47,7 @@ def viewImage(data, save=False):
    if True:
       name, _ = os.path.splitext(data[2].split('/')[-1])
       name = name + '.png'
-      fig.savefig(name )
+      fig.savefig(name)
 
    fig.show()
    plt.show()
@@ -40,6 +56,7 @@ class DataLoader:
    def __init__(self, path2LstFile, shuffle=False, criteria=None):
       self.idx = 0
       self.Files = open(path2LstFile, 'r').readlines()
+      self.Files = [ line for line in self.Files if '#' not in line ]
 
       # only select some images has the same Focus
       if bool(criteria):
@@ -60,11 +77,11 @@ class DataLoader:
 
    def getNextImgData(self):
       # line = 'init'
-      while self.idx <= len(self.TestImgs):
+      while self.idx < len(self.TestImgs):
          line = self.TestImgs[self.idx]
          self.idx += 1
 
-         x_file, y_file, Sensity, F = line.split(' ')
+         x_file, y_file, Sensity, F = [ i for i in line.split(' ') if i != '' ]
          x_data = rawpy.imread(x_file).postprocess(use_camera_wb=True)
          y_data = rawpy.imread(y_file).postprocess(use_camera_wb=True)
          if len(x_data[0][0]) != 3:
@@ -76,7 +93,7 @@ class DataLoader:
 
          return x_data, y_data, x_file, F
 
-      return np.array([False]), np.array([False]), '', ''
+      return np.array([None]), np.array([None]), '', ''
 
 
 class DataConverter:
@@ -109,7 +126,7 @@ class DataConverter:
                    f', mat_c={self.mat_c}, mat_r={self.mat_r}, X_data.shape={self.X_data.shape}, Y_data.shape={self.Y_data.shape}')
             return np.array([None]), np.array([None])
 
-         self.MatIdx = (self.r_ptr+1)*(self.max_c_ptr+1) + self.c_ptr+1
+         self.MatIdx = (self.r_ptr)*(self.max_c_ptr+1) + self.c_ptr+1
 
          self.c_ptr  += 1
 

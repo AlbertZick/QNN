@@ -1,42 +1,42 @@
-./Sony/short/20188_00_0.033s.ARW ./Sony/long/20188_00_10s.ARW ISO10000 F10
-./Sony/short/20188_00_0.04s.ARW ./Sony/long/20188_00_10s.ARW ISO10000 F10
-./Sony/short/20188_00_0.1s.ARW ./Sony/long/20188_00_10s.ARW ISO10000 F10
-./Sony/short/20188_01_0.033s.ARW ./Sony/long/20188_00_10s.ARW ISO10000 F10
-./Sony/short/20188_01_0.04s.ARW ./Sony/long/20188_00_10s.ARW ISO10000 F10
-./Sony/short/20188_01_0.1s.ARW ./Sony/long/20188_00_10s.ARW ISO10000 F10
-./Sony/short/20188_02_0.04s.ARW ./Sony/long/20188_00_10s.ARW ISO10000 F10
-./Sony/short/20188_03_0.04s.ARW ./Sony/long/20188_00_10s.ARW ISO10000 F10
-./Sony/short/20188_04_0.04s.ARW ./Sony/long/20188_00_10s.ARW ISO10000 F10
-./Sony/short/20188_05_0.04s.ARW ./Sony/long/20188_00_10s.ARW ISO10000 F10
-./Sony/short/20188_06_0.04s.ARW ./Sony/long/20188_00_10s.ARW ISO10000 F10
-./Sony/short/20188_07_0.04s.ARW ./Sony/long/20188_00_10s.ARW ISO10000 F10
-./Sony/short/20188_08_0.04s.ARW ./Sony/long/20188_00_10s.ARW ISO10000 F10
-./Sony/short/20188_09_0.04s.ARW ./Sony/long/20188_00_10s.ARW ISO10000 F10
-./Sony/short/20208_00_0.033s.ARW ./Sony/long/20208_00_10s.ARW ISO25600 F10
-./Sony/short/20208_00_0.04s.ARW ./Sony/long/20208_00_10s.ARW ISO25600 F10
-./Sony/short/20208_00_0.1s.ARW ./Sony/long/20208_00_10s.ARW ISO25600 F10
-./Sony/short/20208_01_0.033s.ARW ./Sony/long/20208_00_10s.ARW ISO25600 F10
-./Sony/short/20208_01_0.04s.ARW ./Sony/long/20208_00_10s.ARW ISO25600 F10
-./Sony/short/20208_01_0.1s.ARW ./Sony/long/20208_00_10s.ARW ISO25600 F10
-./Sony/short/20208_02_0.04s.ARW ./Sony/long/20208_00_10s.ARW ISO25600 F10
-./Sony/short/20208_03_0.04s.ARW ./Sony/long/20208_00_10s.ARW ISO25600 F10
-./Sony/short/20208_04_0.04s.ARW ./Sony/long/20208_00_10s.ARW ISO25600 F10
-./Sony/short/20208_05_0.04s.ARW ./Sony/long/20208_00_10s.ARW ISO25600 F10
-./Sony/short/20208_06_0.04s.ARW ./Sony/long/20208_00_10s.ARW ISO25600 F10
-./Sony/short/20208_07_0.04s.ARW ./Sony/long/20208_00_10s.ARW ISO25600 F10
-./Sony/short/20208_08_0.04s.ARW ./Sony/long/20208_00_10s.ARW ISO25600 F10
-./Sony/short/20208_09_0.04s.ARW ./Sony/long/20208_00_10s.ARW ISO25600 F10
-./Sony/short/20210_00_0.033s.ARW ./Sony/long/20210_00_10s.ARW ISO25600 F10
-./Sony/short/20210_00_0.04s.ARW ./Sony/long/20210_00_10s.ARW ISO25600 F10
-./Sony/short/20210_00_0.1s.ARW ./Sony/long/20210_00_10s.ARW ISO25600 F10
-./Sony/short/20210_01_0.033s.ARW ./Sony/long/20210_00_10s.ARW ISO25600 F10
-./Sony/short/20210_01_0.04s.ARW ./Sony/long/20210_00_10s.ARW ISO25600 F10
-./Sony/short/20210_01_0.1s.ARW ./Sony/long/20210_00_10s.ARW ISO25600 F10
-./Sony/short/20210_02_0.04s.ARW ./Sony/long/20210_00_10s.ARW ISO25600 F10
-./Sony/short/20210_03_0.04s.ARW ./Sony/long/20210_00_10s.ARW ISO25600 F10
-./Sony/short/20210_04_0.04s.ARW ./Sony/long/20210_00_10s.ARW ISO25600 F10
-./Sony/short/20210_05_0.04s.ARW ./Sony/long/20210_00_10s.ARW ISO25600 F10
-./Sony/short/20210_06_0.04s.ARW ./Sony/long/20210_00_10s.ARW ISO25600 F10
-./Sony/short/20210_07_0.04s.ARW ./Sony/long/20210_00_10s.ARW ISO25600 F10
-./Sony/short/20210_08_0.04s.ARW ./Sony/long/20210_00_10s.ARW ISO25600 F10
-./Sony/short/20210_09_0.04s.ARW ./Sony/long/20210_00_10s.ARW ISO25600 F10
+../DataSet/F10/short/20188_00_0.033s.ARW ../DataSet/F10/long/20188_00_10s.ARW ISO10000 F10
+# ../DataSet/F10/short/20188_00_0.04s.ARW  ../DataSet/F10/long/20188_00_10s.ARW ISO10000 F10
+# ../DataSet/F10/short/20188_00_0.1s.ARW   ../DataSet/F10/long/20188_00_10s.ARW ISO10000 F10
+# ../DataSet/F10/short/20188_01_0.033s.ARW ../DataSet/F10/long/20188_00_10s.ARW ISO10000 F10
+# ../DataSet/F10/short/20188_01_0.04s.ARW  ../DataSet/F10/long/20188_00_10s.ARW ISO10000 F10
+# ../DataSet/F10/short/20188_01_0.1s.ARW   ../DataSet/F10/long/20188_00_10s.ARW ISO10000 F10
+# ../DataSet/F10/short/20188_02_0.04s.ARW  ../DataSet/F10/long/20188_00_10s.ARW ISO10000 F10
+# ../DataSet/F10/short/20188_03_0.04s.ARW  ../DataSet/F10/long/20188_00_10s.ARW ISO10000 F10
+# ../DataSet/F10/short/20188_04_0.04s.ARW  ../DataSet/F10/long/20188_00_10s.ARW ISO10000 F10
+# ../DataSet/F10/short/20188_05_0.04s.ARW  ../DataSet/F10/long/20188_00_10s.ARW ISO10000 F10
+# ../DataSet/F10/short/20188_06_0.04s.ARW  ../DataSet/F10/long/20188_00_10s.ARW ISO10000 F10
+# ../DataSet/F10/short/20188_07_0.04s.ARW  ../DataSet/F10/long/20188_00_10s.ARW ISO10000 F10
+# ../DataSet/F10/short/20188_08_0.04s.ARW  ../DataSet/F10/long/20188_00_10s.ARW ISO10000 F10
+# ../DataSet/F10/short/20188_09_0.04s.ARW  ../DataSet/F10/long/20188_00_10s.ARW ISO10000 F10
+# ../DataSet/F10/short/20208_00_0.033s.ARW ../DataSet/F10/long/20208_00_10s.ARW ISO25600 F10
+# ../DataSet/F10/short/20208_00_0.04s.ARW  ../DataSet/F10/long/20208_00_10s.ARW ISO25600 F10
+# ../DataSet/F10/short/20208_00_0.1s.ARW   ../DataSet/F10/long/20208_00_10s.ARW ISO25600 F10
+# ../DataSet/F10/short/20208_01_0.033s.ARW ../DataSet/F10/long/20208_00_10s.ARW ISO25600 F10
+# ../DataSet/F10/short/20208_01_0.04s.ARW  ../DataSet/F10/long/20208_00_10s.ARW ISO25600 F10
+# ../DataSet/F10/short/20208_01_0.1s.ARW   ../DataSet/F10/long/20208_00_10s.ARW ISO25600 F10
+# ../DataSet/F10/short/20208_02_0.04s.ARW  ../DataSet/F10/long/20208_00_10s.ARW ISO25600 F10
+# ../DataSet/F10/short/20208_03_0.04s.ARW  ../DataSet/F10/long/20208_00_10s.ARW ISO25600 F10
+# ../DataSet/F10/short/20208_04_0.04s.ARW  ../DataSet/F10/long/20208_00_10s.ARW ISO25600 F10
+# ../DataSet/F10/short/20208_05_0.04s.ARW  ../DataSet/F10/long/20208_00_10s.ARW ISO25600 F10
+# ../DataSet/F10/short/20208_06_0.04s.ARW  ../DataSet/F10/long/20208_00_10s.ARW ISO25600 F10
+# ../DataSet/F10/short/20208_07_0.04s.ARW  ../DataSet/F10/long/20208_00_10s.ARW ISO25600 F10
+# ../DataSet/F10/short/20208_08_0.04s.ARW  ../DataSet/F10/long/20208_00_10s.ARW ISO25600 F10
+# ../DataSet/F10/short/20208_09_0.04s.ARW  ../DataSet/F10/long/20208_00_10s.ARW ISO25600 F10
+# ../DataSet/F10/short/20210_00_0.033s.ARW ../DataSet/F10/long/20210_00_10s.ARW ISO25600 F10
+# ../DataSet/F10/short/20210_00_0.04s.ARW  ../DataSet/F10/long/20210_00_10s.ARW ISO25600 F10
+# ../DataSet/F10/short/20210_00_0.1s.ARW   ../DataSet/F10/long/20210_00_10s.ARW ISO25600 F10
+# ../DataSet/F10/short/20210_01_0.033s.ARW ../DataSet/F10/long/20210_00_10s.ARW ISO25600 F10
+# ../DataSet/F10/short/20210_01_0.04s.ARW  ../DataSet/F10/long/20210_00_10s.ARW ISO25600 F10
+# ../DataSet/F10/short/20210_01_0.1s.ARW   ../DataSet/F10/long/20210_00_10s.ARW ISO25600 F10
+# ../DataSet/F10/short/20210_02_0.04s.ARW  ../DataSet/F10/long/20210_00_10s.ARW ISO25600 F10
+# ../DataSet/F10/short/20210_03_0.04s.ARW  ../DataSet/F10/long/20210_00_10s.ARW ISO25600 F10
+# ../DataSet/F10/short/20210_04_0.04s.ARW  ../DataSet/F10/long/20210_00_10s.ARW ISO25600 F10
+# ../DataSet/F10/short/20210_05_0.04s.ARW  ../DataSet/F10/long/20210_00_10s.ARW ISO25600 F10
+# ../DataSet/F10/short/20210_06_0.04s.ARW  ../DataSet/F10/long/20210_00_10s.ARW ISO25600 F10
+# ../DataSet/F10/short/20210_07_0.04s.ARW  ../DataSet/F10/long/20210_00_10s.ARW ISO25600 F10
+# ../DataSet/F10/short/20210_08_0.04s.ARW  ../DataSet/F10/long/20210_00_10s.ARW ISO25600 F10
+# ../DataSet/F10/short/20210_09_0.04s.ARW  ../DataSet/F10/long/20210_00_10s.ARW ISO25600 F10

@@ -48,63 +48,6 @@ class LossFunc:
       if self.Type ==  LossFunc_enum.diff:
          return np.absolute(Predict - Real)
 
-
-
-'''
-class HiddenLayer:
-  def __init__(self, i_dim, o_dim):   
-    self.arg = arg
-
-    self.o_dim = o_dim
-    self.i_dim = i_dim
-
-    # O x I x 4 x 1
-    self.W  = np.random.rand(self.o_dim, self.i_dim, 4, 1)
-
-    # O x 4 x 1
-    self.B  = np.random.rand( self.o_dim, 4, 1)
-
-    # O x 4 x 1
-    # self.K = rotate(X)
-    self.K = np.zeros((self.o_dim, 4, 1), dtype=np.float64)
-
-
-  """
-  Receive input x =  [ x1  x2 ... xn ] ^ T | x1,x2...xn are pure quaternion
-  Return output y = sigmoid (K)
-  """
-  def forward(self, X):
-    # self.K = Rotate(self.W) @ X
-    for i_0 in range(self.o_dim):
-      for i_1 in range(self.i_dim):
-        self.K[i_0] += (Rotate(self.W[i_0, i_1]) @ X[i_1] ) / abs_Q(self.W[i_0, i_1])
-
-    self.Y = sigmoid(self.K) + self.B
-
-
-  # def backpro(self, DY, X):
-  #   self.Dsigm = DY * sigmoid(self.K) * ( 1 - sigmoid(self.K))
-
-  #   I = np.array( [[0], [1], [0], [0]] , dtype=np.float64 )
-  #   J = np.array( [[0], [0], [1], [0]] , dtype=np.float64 )
-  #   K = np.array( [[0], [0], [0], [1]] , dtype=np.float64 )
-
-
-  #   for i_0 in range(self.o_dim):
-  #     for i_1 in range(self.i_dim):
-  #       self.DW[i_0, i_1] =  \
-  #               self.Dsigm[i_0] *\
-  #                 ( 
-  #                  -conj_Q(mul_Q(self.W[i_0, i_1], X[i_0, i_1]))           + mul_Q(self.W[i_0, i_1], X[i_0, i_1]) +\
-  #                   conj_Q(mul_Q(mul_Q(self.W[i_0, i_1], X[i_0, i_1]), I)) - mul_Q(mul_Q(self.W[i_0, i_1], X[i_0, i_1]), I) +\
-  #                   conj_Q(mul_Q(mul_Q(self.W[i_0, i_1], X[i_0, i_1]), J)) - mul_Q(mul_Q(self.W[i_0, i_1], X[i_0, i_1]), J) +\
-  #                   conj_Q(mul_Q(mul_Q(self.W[i_0, i_1], X[i_0, i_1]), K)) - mul_Q(mul_Q(self.W[i_0, i_1], X[i_0, i_1]), K) +\
-  #                 ) / 4 / abs_Q(self.W[i_0, i_1])   +\
-
-  #   self.DX = 00000000000000
-  #   self.DB = self.Dsigm
-'''
-
 class HiddenLayer:
    nth_layer = 0
    def __init__(self, i_dim, o_dim, useBias=True):
@@ -243,3 +186,5 @@ class HiddenLayer:
                         [df2, df3, df1] ], dtype=np.float64)
 
       return DR
+
+

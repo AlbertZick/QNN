@@ -1,91 +1,91 @@
 ./Sony/short/10054_00_0.04s.ARW ./Sony/long/10054_00_10s.ARW ISO250 F10
-./Sony/short/10054_00_0.1s.ARW ./Sony/long/10054_00_10s.ARW ISO250 F10
-./Sony/short/10054_01_0.04s.ARW ./Sony/long/10054_00_10s.ARW ISO250 F10
-./Sony/short/10054_01_0.1s.ARW ./Sony/long/10054_00_10s.ARW ISO250 F10
-./Sony/short/10054_02_0.1s.ARW ./Sony/long/10054_00_10s.ARW ISO250 F10
-./Sony/short/10054_03_0.1s.ARW ./Sony/long/10054_00_10s.ARW ISO250 F10
-./Sony/short/10054_04_0.1s.ARW ./Sony/long/10054_00_10s.ARW ISO250 F10
-./Sony/short/10054_05_0.1s.ARW ./Sony/long/10054_00_10s.ARW ISO250 F10
-./Sony/short/10054_06_0.1s.ARW ./Sony/long/10054_00_10s.ARW ISO250 F10
-./Sony/short/10054_07_0.1s.ARW ./Sony/long/10054_00_10s.ARW ISO250 F10
-./Sony/short/10054_08_0.1s.ARW ./Sony/long/10054_00_10s.ARW ISO250 F10
-./Sony/short/10054_09_0.1s.ARW ./Sony/long/10054_00_10s.ARW ISO250 F10
-./Sony/short/10055_00_0.04s.ARW ./Sony/long/10055_00_10s.ARW ISO250 F10
-./Sony/short/10055_00_0.1s.ARW ./Sony/long/10055_00_10s.ARW ISO250 F10
-./Sony/short/10055_01_0.04s.ARW ./Sony/long/10055_00_10s.ARW ISO250 F10
-./Sony/short/10055_01_0.1s.ARW ./Sony/long/10055_00_10s.ARW ISO250 F10
-./Sony/short/10055_02_0.1s.ARW ./Sony/long/10055_00_10s.ARW ISO250 F10
-./Sony/short/10055_03_0.1s.ARW ./Sony/long/10055_00_10s.ARW ISO250 F10
-./Sony/short/10055_04_0.1s.ARW ./Sony/long/10055_00_10s.ARW ISO250 F10
-./Sony/short/10055_05_0.1s.ARW ./Sony/long/10055_00_10s.ARW ISO250 F10
-./Sony/short/10055_06_0.1s.ARW ./Sony/long/10055_00_10s.ARW ISO250 F10
-./Sony/short/10055_07_0.1s.ARW ./Sony/long/10055_00_10s.ARW ISO250 F10
-./Sony/short/10055_08_0.1s.ARW ./Sony/long/10055_00_10s.ARW ISO250 F10
-./Sony/short/10055_09_0.1s.ARW ./Sony/long/10055_00_10s.ARW ISO250 F10
-./Sony/short/10139_00_0.1s.ARW ./Sony/long/10139_00_30s.ARW ISO320 F10
-./Sony/short/10139_01_0.1s.ARW ./Sony/long/10139_00_30s.ARW ISO320 F10
-./Sony/short/10139_02_0.1s.ARW ./Sony/long/10139_00_30s.ARW ISO320 F10
-./Sony/short/10139_03_0.1s.ARW ./Sony/long/10139_00_30s.ARW ISO320 F10
-./Sony/short/10139_04_0.1s.ARW ./Sony/long/10139_00_30s.ARW ISO320 F10
-./Sony/short/10139_05_0.1s.ARW ./Sony/long/10139_00_30s.ARW ISO320 F10
-./Sony/short/10139_06_0.1s.ARW ./Sony/long/10139_00_30s.ARW ISO320 F10
-./Sony/short/10139_07_0.1s.ARW ./Sony/long/10139_00_30s.ARW ISO320 F10
-./Sony/short/10139_08_0.1s.ARW ./Sony/long/10139_00_30s.ARW ISO320 F10
-./Sony/short/10139_09_0.1s.ARW ./Sony/long/10139_00_30s.ARW ISO320 F10
-./Sony/short/10187_00_0.033s.ARW ./Sony/long/10187_00_10s.ARW ISO10000 F10
-./Sony/short/10187_00_0.04s.ARW ./Sony/long/10187_00_10s.ARW ISO10000 F10
-./Sony/short/10187_00_0.1s.ARW ./Sony/long/10187_00_10s.ARW ISO10000 F10
-./Sony/short/10187_01_0.033s.ARW ./Sony/long/10187_00_10s.ARW ISO10000 F10
-./Sony/short/10187_01_0.04s.ARW ./Sony/long/10187_00_10s.ARW ISO10000 F10
-./Sony/short/10187_01_0.1s.ARW ./Sony/long/10187_00_10s.ARW ISO10000 F10
-./Sony/short/10187_02_0.04s.ARW ./Sony/long/10187_00_10s.ARW ISO10000 F10
-./Sony/short/10187_03_0.04s.ARW ./Sony/long/10187_00_10s.ARW ISO10000 F10
-./Sony/short/10187_04_0.04s.ARW ./Sony/long/10187_00_10s.ARW ISO10000 F10
-./Sony/short/10187_05_0.04s.ARW ./Sony/long/10187_00_10s.ARW ISO10000 F10
-./Sony/short/10187_06_0.04s.ARW ./Sony/long/10187_00_10s.ARW ISO10000 F10
-./Sony/short/10187_07_0.04s.ARW ./Sony/long/10187_00_10s.ARW ISO10000 F10
-./Sony/short/10187_08_0.04s.ARW ./Sony/long/10187_00_10s.ARW ISO10000 F10
-./Sony/short/10187_09_0.04s.ARW ./Sony/long/10187_00_10s.ARW ISO10000 F10
-./Sony/short/10191_00_0.033s.ARW ./Sony/long/10191_00_10s.ARW ISO10000 F10
-./Sony/short/10191_00_0.04s.ARW ./Sony/long/10191_00_10s.ARW ISO10000 F10
-./Sony/short/10191_00_0.1s.ARW ./Sony/long/10191_00_10s.ARW ISO10000 F10
-./Sony/short/10191_01_0.033s.ARW ./Sony/long/10191_00_10s.ARW ISO10000 F10
-./Sony/short/10191_01_0.04s.ARW ./Sony/long/10191_00_10s.ARW ISO10000 F10
-./Sony/short/10191_01_0.1s.ARW ./Sony/long/10191_00_10s.ARW ISO10000 F10
-./Sony/short/10191_02_0.04s.ARW ./Sony/long/10191_00_10s.ARW ISO10000 F10
-./Sony/short/10191_03_0.04s.ARW ./Sony/long/10191_00_10s.ARW ISO10000 F10
-./Sony/short/10191_04_0.04s.ARW ./Sony/long/10191_00_10s.ARW ISO10000 F10
-./Sony/short/10191_05_0.04s.ARW ./Sony/long/10191_00_10s.ARW ISO10000 F10
-./Sony/short/10191_06_0.04s.ARW ./Sony/long/10191_00_10s.ARW ISO10000 F10
-./Sony/short/10191_07_0.04s.ARW ./Sony/long/10191_00_10s.ARW ISO10000 F10
-./Sony/short/10191_08_0.04s.ARW ./Sony/long/10191_00_10s.ARW ISO10000 F10
-./Sony/short/10191_09_0.04s.ARW ./Sony/long/10191_00_10s.ARW ISO10000 F10
-./Sony/short/10192_00_0.033s.ARW ./Sony/long/10192_00_10s.ARW ISO2500 F10
-./Sony/short/10192_00_0.04s.ARW ./Sony/long/10192_00_10s.ARW ISO2500 F10
-./Sony/short/10192_00_0.1s.ARW ./Sony/long/10192_00_10s.ARW ISO2500 F10
-./Sony/short/10192_01_0.033s.ARW ./Sony/long/10192_00_10s.ARW ISO2500 F10
-./Sony/short/10192_01_0.04s.ARW ./Sony/long/10192_00_10s.ARW ISO2500 F10
-./Sony/short/10192_01_0.1s.ARW ./Sony/long/10192_00_10s.ARW ISO2500 F10
-./Sony/short/10192_02_0.04s.ARW ./Sony/long/10192_00_10s.ARW ISO2500 F10
-./Sony/short/10192_03_0.04s.ARW ./Sony/long/10192_00_10s.ARW ISO2500 F10
-./Sony/short/10192_04_0.04s.ARW ./Sony/long/10192_00_10s.ARW ISO2500 F10
-./Sony/short/10192_05_0.04s.ARW ./Sony/long/10192_00_10s.ARW ISO2500 F10
-./Sony/short/10192_06_0.04s.ARW ./Sony/long/10192_00_10s.ARW ISO2500 F10
-./Sony/short/10192_07_0.04s.ARW ./Sony/long/10192_00_10s.ARW ISO2500 F10
-./Sony/short/10192_08_0.04s.ARW ./Sony/long/10192_00_10s.ARW ISO2500 F10
-./Sony/short/10192_09_0.04s.ARW ./Sony/long/10192_00_10s.ARW ISO2500 F10
-./Sony/short/10192_10_0.04s.ARW ./Sony/long/10192_00_10s.ARW ISO2500 F10
-./Sony/short/10193_00_0.033s.ARW ./Sony/long/10193_00_10s.ARW ISO1600 F10
-./Sony/short/10193_00_0.04s.ARW ./Sony/long/10193_00_10s.ARW ISO1600 F10
-./Sony/short/10193_00_0.1s.ARW ./Sony/long/10193_00_10s.ARW ISO1600 F10
-./Sony/short/10193_01_0.033s.ARW ./Sony/long/10193_00_10s.ARW ISO1600 F10
-./Sony/short/10193_01_0.04s.ARW ./Sony/long/10193_00_10s.ARW ISO1600 F10
-./Sony/short/10193_01_0.1s.ARW ./Sony/long/10193_00_10s.ARW ISO1600 F10
-./Sony/short/10193_02_0.04s.ARW ./Sony/long/10193_00_10s.ARW ISO1600 F10
-./Sony/short/10193_03_0.04s.ARW ./Sony/long/10193_00_10s.ARW ISO1600 F10
-./Sony/short/10193_04_0.04s.ARW ./Sony/long/10193_00_10s.ARW ISO1600 F10
-./Sony/short/10193_05_0.04s.ARW ./Sony/long/10193_00_10s.ARW ISO1600 F10
-./Sony/short/10193_06_0.04s.ARW ./Sony/long/10193_00_10s.ARW ISO1600 F10
-./Sony/short/10193_07_0.04s.ARW ./Sony/long/10193_00_10s.ARW ISO1600 F10
-./Sony/short/10193_08_0.04s.ARW ./Sony/long/10193_00_10s.ARW ISO1600 F10
-./Sony/short/10193_09_0.04s.ARW ./Sony/long/10193_00_10s.ARW ISO1600 F10
+# ./Sony/short/10054_00_0.1s.ARW ./Sony/long/10054_00_10s.ARW ISO250 F10
+# ./Sony/short/10054_01_0.04s.ARW ./Sony/long/10054_00_10s.ARW ISO250 F10
+# ./Sony/short/10054_01_0.1s.ARW ./Sony/long/10054_00_10s.ARW ISO250 F10
+# ./Sony/short/10054_02_0.1s.ARW ./Sony/long/10054_00_10s.ARW ISO250 F10
+# ./Sony/short/10054_03_0.1s.ARW ./Sony/long/10054_00_10s.ARW ISO250 F10
+# ./Sony/short/10054_04_0.1s.ARW ./Sony/long/10054_00_10s.ARW ISO250 F10
+# ./Sony/short/10054_05_0.1s.ARW ./Sony/long/10054_00_10s.ARW ISO250 F10
+# ./Sony/short/10054_06_0.1s.ARW ./Sony/long/10054_00_10s.ARW ISO250 F10
+# ./Sony/short/10054_07_0.1s.ARW ./Sony/long/10054_00_10s.ARW ISO250 F10
+# ./Sony/short/10054_08_0.1s.ARW ./Sony/long/10054_00_10s.ARW ISO250 F10
+# ./Sony/short/10054_09_0.1s.ARW ./Sony/long/10054_00_10s.ARW ISO250 F10
+# ./Sony/short/10055_00_0.04s.ARW ./Sony/long/10055_00_10s.ARW ISO250 F10
+# ./Sony/short/10055_00_0.1s.ARW ./Sony/long/10055_00_10s.ARW ISO250 F10
+# ./Sony/short/10055_01_0.04s.ARW ./Sony/long/10055_00_10s.ARW ISO250 F10
+# ./Sony/short/10055_01_0.1s.ARW ./Sony/long/10055_00_10s.ARW ISO250 F10
+# ./Sony/short/10055_02_0.1s.ARW ./Sony/long/10055_00_10s.ARW ISO250 F10
+# ./Sony/short/10055_03_0.1s.ARW ./Sony/long/10055_00_10s.ARW ISO250 F10
+# ./Sony/short/10055_04_0.1s.ARW ./Sony/long/10055_00_10s.ARW ISO250 F10
+# ./Sony/short/10055_05_0.1s.ARW ./Sony/long/10055_00_10s.ARW ISO250 F10
+# ./Sony/short/10055_06_0.1s.ARW ./Sony/long/10055_00_10s.ARW ISO250 F10
+# ./Sony/short/10055_07_0.1s.ARW ./Sony/long/10055_00_10s.ARW ISO250 F10
+# ./Sony/short/10055_08_0.1s.ARW ./Sony/long/10055_00_10s.ARW ISO250 F10
+# ./Sony/short/10055_09_0.1s.ARW ./Sony/long/10055_00_10s.ARW ISO250 F10
+# ./Sony/short/10139_00_0.1s.ARW ./Sony/long/10139_00_30s.ARW ISO320 F10
+# ./Sony/short/10139_01_0.1s.ARW ./Sony/long/10139_00_30s.ARW ISO320 F10
+# ./Sony/short/10139_02_0.1s.ARW ./Sony/long/10139_00_30s.ARW ISO320 F10
+# ./Sony/short/10139_03_0.1s.ARW ./Sony/long/10139_00_30s.ARW ISO320 F10
+# ./Sony/short/10139_04_0.1s.ARW ./Sony/long/10139_00_30s.ARW ISO320 F10
+# ./Sony/short/10139_05_0.1s.ARW ./Sony/long/10139_00_30s.ARW ISO320 F10
+# ./Sony/short/10139_06_0.1s.ARW ./Sony/long/10139_00_30s.ARW ISO320 F10
+# ./Sony/short/10139_07_0.1s.ARW ./Sony/long/10139_00_30s.ARW ISO320 F10
+# ./Sony/short/10139_08_0.1s.ARW ./Sony/long/10139_00_30s.ARW ISO320 F10
+# ./Sony/short/10139_09_0.1s.ARW ./Sony/long/10139_00_30s.ARW ISO320 F10
+# ./Sony/short/10187_00_0.033s.ARW ./Sony/long/10187_00_10s.ARW ISO10000 F10
+# ./Sony/short/10187_00_0.04s.ARW ./Sony/long/10187_00_10s.ARW ISO10000 F10
+# ./Sony/short/10187_00_0.1s.ARW ./Sony/long/10187_00_10s.ARW ISO10000 F10
+# ./Sony/short/10187_01_0.033s.ARW ./Sony/long/10187_00_10s.ARW ISO10000 F10
+# ./Sony/short/10187_01_0.04s.ARW ./Sony/long/10187_00_10s.ARW ISO10000 F10
+# ./Sony/short/10187_01_0.1s.ARW ./Sony/long/10187_00_10s.ARW ISO10000 F10
+# ./Sony/short/10187_02_0.04s.ARW ./Sony/long/10187_00_10s.ARW ISO10000 F10
+# ./Sony/short/10187_03_0.04s.ARW ./Sony/long/10187_00_10s.ARW ISO10000 F10
+# ./Sony/short/10187_04_0.04s.ARW ./Sony/long/10187_00_10s.ARW ISO10000 F10
+# ./Sony/short/10187_05_0.04s.ARW ./Sony/long/10187_00_10s.ARW ISO10000 F10
+# ./Sony/short/10187_06_0.04s.ARW ./Sony/long/10187_00_10s.ARW ISO10000 F10
+# ./Sony/short/10187_07_0.04s.ARW ./Sony/long/10187_00_10s.ARW ISO10000 F10
+# ./Sony/short/10187_08_0.04s.ARW ./Sony/long/10187_00_10s.ARW ISO10000 F10
+# ./Sony/short/10187_09_0.04s.ARW ./Sony/long/10187_00_10s.ARW ISO10000 F10
+# ./Sony/short/10191_00_0.033s.ARW ./Sony/long/10191_00_10s.ARW ISO10000 F10
+# ./Sony/short/10191_00_0.04s.ARW ./Sony/long/10191_00_10s.ARW ISO10000 F10
+# ./Sony/short/10191_00_0.1s.ARW ./Sony/long/10191_00_10s.ARW ISO10000 F10
+# ./Sony/short/10191_01_0.033s.ARW ./Sony/long/10191_00_10s.ARW ISO10000 F10
+# ./Sony/short/10191_01_0.04s.ARW ./Sony/long/10191_00_10s.ARW ISO10000 F10
+# ./Sony/short/10191_01_0.1s.ARW ./Sony/long/10191_00_10s.ARW ISO10000 F10
+# ./Sony/short/10191_02_0.04s.ARW ./Sony/long/10191_00_10s.ARW ISO10000 F10
+# ./Sony/short/10191_03_0.04s.ARW ./Sony/long/10191_00_10s.ARW ISO10000 F10
+# ./Sony/short/10191_04_0.04s.ARW ./Sony/long/10191_00_10s.ARW ISO10000 F10
+# ./Sony/short/10191_05_0.04s.ARW ./Sony/long/10191_00_10s.ARW ISO10000 F10
+# ./Sony/short/10191_06_0.04s.ARW ./Sony/long/10191_00_10s.ARW ISO10000 F10
+# ./Sony/short/10191_07_0.04s.ARW ./Sony/long/10191_00_10s.ARW ISO10000 F10
+# ./Sony/short/10191_08_0.04s.ARW ./Sony/long/10191_00_10s.ARW ISO10000 F10
+# ./Sony/short/10191_09_0.04s.ARW ./Sony/long/10191_00_10s.ARW ISO10000 F10
+# ./Sony/short/10192_00_0.033s.ARW ./Sony/long/10192_00_10s.ARW ISO2500 F10
+# ./Sony/short/10192_00_0.04s.ARW ./Sony/long/10192_00_10s.ARW ISO2500 F10
+# ./Sony/short/10192_00_0.1s.ARW ./Sony/long/10192_00_10s.ARW ISO2500 F10
+# ./Sony/short/10192_01_0.033s.ARW ./Sony/long/10192_00_10s.ARW ISO2500 F10
+# ./Sony/short/10192_01_0.04s.ARW ./Sony/long/10192_00_10s.ARW ISO2500 F10
+# ./Sony/short/10192_01_0.1s.ARW ./Sony/long/10192_00_10s.ARW ISO2500 F10
+# ./Sony/short/10192_02_0.04s.ARW ./Sony/long/10192_00_10s.ARW ISO2500 F10
+# ./Sony/short/10192_03_0.04s.ARW ./Sony/long/10192_00_10s.ARW ISO2500 F10
+# ./Sony/short/10192_04_0.04s.ARW ./Sony/long/10192_00_10s.ARW ISO2500 F10
+# ./Sony/short/10192_05_0.04s.ARW ./Sony/long/10192_00_10s.ARW ISO2500 F10
+# ./Sony/short/10192_06_0.04s.ARW ./Sony/long/10192_00_10s.ARW ISO2500 F10
+# ./Sony/short/10192_07_0.04s.ARW ./Sony/long/10192_00_10s.ARW ISO2500 F10
+# ./Sony/short/10192_08_0.04s.ARW ./Sony/long/10192_00_10s.ARW ISO2500 F10
+# ./Sony/short/10192_09_0.04s.ARW ./Sony/long/10192_00_10s.ARW ISO2500 F10
+# ./Sony/short/10192_10_0.04s.ARW ./Sony/long/10192_00_10s.ARW ISO2500 F10
+# ./Sony/short/10193_00_0.033s.ARW ./Sony/long/10193_00_10s.ARW ISO1600 F10
+# ./Sony/short/10193_00_0.04s.ARW ./Sony/long/10193_00_10s.ARW ISO1600 F10
+# ./Sony/short/10193_00_0.1s.ARW ./Sony/long/10193_00_10s.ARW ISO1600 F10
+# ./Sony/short/10193_01_0.033s.ARW ./Sony/long/10193_00_10s.ARW ISO1600 F10
+# ./Sony/short/10193_01_0.04s.ARW ./Sony/long/10193_00_10s.ARW ISO1600 F10
+# ./Sony/short/10193_01_0.1s.ARW ./Sony/long/10193_00_10s.ARW ISO1600 F10
+# ./Sony/short/10193_02_0.04s.ARW ./Sony/long/10193_00_10s.ARW ISO1600 F10
+# ./Sony/short/10193_03_0.04s.ARW ./Sony/long/10193_00_10s.ARW ISO1600 F10
+# ./Sony/short/10193_04_0.04s.ARW ./Sony/long/10193_00_10s.ARW ISO1600 F10
+# ./Sony/short/10193_05_0.04s.ARW ./Sony/long/10193_00_10s.ARW ISO1600 F10
+# ./Sony/short/10193_06_0.04s.ARW ./Sony/long/10193_00_10s.ARW ISO1600 F10
+# ./Sony/short/10193_07_0.04s.ARW ./Sony/long/10193_00_10s.ARW ISO1600 F10
+# ./Sony/short/10193_08_0.04s.ARW ./Sony/long/10193_00_10s.ARW ISO1600 F10
+# ./Sony/short/10193_09_0.04s.ARW ./Sony/long/10193_00_10s.ARW ISO1600 F10
