@@ -9,7 +9,8 @@
 #      └ short
 ```
 # How to train model ?
-##Command
+## Command
+
 python &nbsp; &nbsp; qnn.py &nbsp; &nbsp; [option]
 
 option:

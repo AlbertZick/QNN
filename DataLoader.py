@@ -11,8 +11,8 @@ class Printer:
       self.crtlogFile = True
       self.nextLine = True
 
-   def show(self, data, new=False):
-      print (''.join([' ']*self.max_len), end='\r')
+   def show(self, data, new=True):
+      # print (''.join([' ']*self.max_len), end='\r')
       String = str(data)
       if new:
          if self.nextLine:
