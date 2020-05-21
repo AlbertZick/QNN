@@ -1,9 +1,10 @@
-# from network import Updater, HiddenLayer, ActiveFunct
-import network as nw
+from network import Updater, HiddenLayer, ActiveFunct_enum, Updater_enum, LossFunc
 from DataLoader import viewImage, DataLoader, Printer, DataConverter
 from math import floor
 import datetime
 import numpy as np
+
+
 
 today = datetime.datetime.today
 now  = datetime.datetime.now
@@ -29,14 +30,14 @@ def train(save=True):
          # arr.append(val.reshape(1,3,1))
          arr = np.concatenate(val.reshape(1,3,1))
 
-   up = nw.Updater(nw.Updater_enum.SGD, r=0.001)
-   H1 = nw.HiddenLayer(9, 5, useBias=True)
-   H2 = nw.HiddenLayer(5, 1, useBias=True)
+   up = Updater(Updater_enum.SGD, r=0.001)
+   H1 = HiddenLayer(9, 5, useBias=True)
+   H2 = HiddenLayer(5, 1, useBias=True)
 
-   H1.compile(Update_c=up, ActFunc=nw.ActiveFunct_enum.sigm)
-   H2.compile(Update_c=up, ActFunc=nw.ActiveFunct_enum.sigm)
+   H1.compile(Update_c=up, ActFunc=ActiveFunct_enum.sigm)
+   H2.compile(Update_c=up, ActFunc=ActiveFunct_enum.sigm)
 
-   Loss = nw.LossFunc()
+   Loss = LossFunc()
 
    trainSet = DataLoader("C:\\MyFolder\\MyData\\QNN\\QNN\\Sony\\Sony_train_list.txt", criteria='F10')
    evalSet  = DataLoader("C:\\MyFolder\\MyData\\QNN\\QNN\\Sony\\Sony_val_list.txt", criteria='F10')
