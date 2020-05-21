@@ -1,28 +1,29 @@
 # data set hierarchy
-../DataSet/
-├ F10
-│   ├ long
-│   └ short
-└ Sony
-    ├ long
-    └ short
-
+```python
+#  ../DataSet/
+#  ├ F10
+#  │   ├ long
+#  │   └ short
+#  └ Sony
+#      ├ long
+#      └ short
+```
 # How to train model ?
-1. Command:
-python qnn [option]
+Command:
+python &nbsp; &nbsp; qnn.py &nbsp; &nbsp; [option]
 
 option:
-   * rtrain  [Model_File]
-   * test    [Model_File]
-   * train   [sub-option]
-   * -tr     [input train file]
-   * -v      [input evaluate file]
-   * -t      [test file]
+   * rtrain &nbsp; [Model_File]
+   * test &nbsp; &nbsp; &nbsp; [Model_File]
+   * train &nbsp; &nbsp; [sub-option]
+   * -tr &nbsp; &nbsp; &nbsp; &nbsp; [input train file]
+   * -v &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [input evaluate file]
+   * -t &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [test file]
 
 sub-option:
-   * -f [init file]
+   * -f &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [init file]
 
 
-model automatically uses train_list.txt, val_list.txt and test_list.txt to specify train data, 
+Code automatically uses train_list.txt, val_list.txt and test_list.txt to specify train data, 
 evaluate data and test data respectively if these files is not given in input arguments
 
