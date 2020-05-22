@@ -42,8 +42,8 @@ def train(trainFile, evalFile, testFile, initFile, save=True):
 
    # create model
    up = Updater(Updater_enum.SGD, r=0.001)
-   H1 = HiddenLayer(9, 5, useBias=True)
-   H2 = HiddenLayer(5, 1, useBias=True)
+   H1 = HiddenLayer(9, 5, 1, useBias=True)
+   H2 = HiddenLayer(5, 1, 1, useBias=True)
 
    H1.compile(Update_c=up, ActFunc=ActiveFunct_enum.sigm)
    H2.compile(Update_c=up, ActFunc=ActiveFunct_enum.sigm)
@@ -81,6 +81,11 @@ def train(trainFile, evalFile, testFile, initFile, save=True):
                          f'Process: {trainData.MatIdx}/{trainData.totalMats}'+\
                                     f'~~({trainData.MatIdx/trainData.totalMats*100:4.0f}%)', new=False)
 
+            ## Test code ################################################################################################################
+            # Prt.show(f'x_data={x_data}')
+            Prt.show(f'H2.theta={H2.theta}')
+            ##############################################################################################################################
+
             # forward
             H1_y = H1.forward(x_data)
             H2_y = H2.forward(H1_y)
@@ -98,6 +103,14 @@ def train(trainFile, evalFile, testFile, initFile, save=True):
             # update
             H1.update()
             H2.update()
+
+            ## Test code ################################################################################################################
+            Prt.show(f'H2.theta={H2.theta}')
+            Prt.show(f'H2.Dtheta={H2.Dtheta}')
+            Prt.show(f'loss={loss}')
+            if eval_cntr == 4:
+               os._exit(0)
+            ##############################################################################################################################
 
             ## Test code ################################################################################################################
             # Prt.show(f'H2_y={H2_y}, H1_y={H1_y}, x_data={x_data[0]}', new=True)
@@ -167,7 +180,7 @@ def train(trainFile, evalFile, testFile, initFile, save=True):
       eval_err = _appendArray(eval_err, np.average(eval_img_err, axis=0), debug=False)
       Prt.show (f'eval_err={eval_err}', new=True)
 
-      if len(eval_err)>1 and np.all(eval_err[-1] > eval_err[-2]):
+      if len(eval_err)>1 and np.all(eval_err[-1] >= eval_err[-2]):
          eval_delay -= 1
 
 
