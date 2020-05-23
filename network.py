@@ -13,7 +13,7 @@ class Updater:
 
    def update(self, X, DX):
       if self.UpdateType == Updater_enum.SGD:
-         return X - DX * self.r
+         return X -  self.r * DX
 
 class ActiveFunct_enum(Enum):
    sigm, tanh = range(2)
@@ -46,7 +46,7 @@ class LossFunc:
 
    def diff(self, Predict, Real):
       if self.Type ==  LossFunc_enum.diff:
-         return np.absolute(Predict - Real)
+         return Predict - Real
 
 class HiddenLayer:
    nth_layer = 0
@@ -150,8 +150,6 @@ class HiddenLayer:
       else:
          DActFunc = DY * self.ActFunc.grad(self.K)
 
-      # print (f'DActFunc={DActFunc}')
-
       # We use average of all dimensions ijk
       for i_in in range(self.i_dim):
          for i_out in range(self.o_dim):
@@ -166,9 +164,6 @@ class HiddenLayer:
 
             self.Dtheta[i_out, i_in] =\
                      np.average( DActFunc[i_out] * self.z[i_out, i_in] * (self.DerivativeMat(self.theta[i_out, i_in]) @ X[i_in]) )
-
-
-
 
       for i_in in range(self.i_dim):
          for i_out in range(self.o_dim):
@@ -208,66 +203,51 @@ class HiddenLayer:
 
 
 
+##############################################################################################################################
+def main():
+   up = Updater(Updater_enum.SGD, r=0.01)
+   H1 = HiddenLayer(9, 1, 1, useBias=True)
 
-# def main():
-#    up = Updater(Updater_enum.SGD, r=0.001)
-#    H1 = HiddenLayer(9, 5, 1, useBias=True)
-#    H2 = HiddenLayer(5, 1, 1, useBias=True)
+   H1.compile(Update_c=up, ActFunc=ActiveFunct_enum.sigm)
 
-#    H1.compile(Update_c=up, ActFunc=ActiveFunct_enum.sigm)
-#    H2.compile(Update_c=up, ActFunc=ActiveFunct_enum.sigm)
-
-#    Loss = LossFunc()
-
-#    # print ('== H1 ===========')
-#    # print (H1.theta)
-#    # print (H1.z)
-#    # print (H1.B)
-#    # theta_11, z_11, b_11 = H1.theta, H1.z, H1.B
-#    # print ('== H2 ===========')
-#    # print (H2.theta)
-#    # print (H2.z)
-#    # print (H2.B)
-#    # theta_21, z_21, b_21 = H2.theta, H2.z, H2.B
-
-#    x_data = np.random.rand(9,3,1)
-#    y_data = np.random.rand(1,3,1)
-
-#    H1_y = H1.forward(x_data)
-#    H2_y = H2.forward(H1_y)
-
-#    err  = Loss.calc(H2_y, y_data)
-
-#    loss = Loss.diff(H2_y, y_data)
-#    DH2_x = H2.backprop(loss, H1_y)
-#    DH1_x = H1.backprop(DH2_x, x_data)
-
-   # H1.update()
-   # H2.update()
+   Loss = LossFunc()
 
    # print ('== H1 ===========')
-   # theta_12, z_12, b_12 = H1.theta, H1.z, H1.B
-   # print (theta_12 - theta_11)
-   # print (z_12 - z_11)
-   # print (b_12 - b_11)
+   # print (H1.theta)
+   # print (H1.z)
+   # print (H1.B)
+   # theta_11, z_11, b_11 = H1.theta, H1.z, H1.B
    # print ('== H2 ===========')
-   # theta_22, z_22, b_22 = H2.theta, H2.z, H2.B
-   # print (theta_22 - theta_21)
-   # print (z_22 - z_21)
-   # print (b_22 - b_21)
-
-   # print(H2.Dz)
-   # print(H2.z - 0.001 * H2.Dz)
-
-   # H2.update()
-
+   # print (H2.theta)
    # print (H2.z)
+   # print (H2.B)
+   # theta_21, z_21, b_21 = H2.theta, H2.z, H2.B
+
+   iteration = 0
+
+   x_data = np.random.rand(9,3,1)
+   y_data = np.random.rand(1,3,1)
+   while iteration<10:
 
 
+      H1_y = H1.forward(x_data)
 
-   # print(H2.Dz)
-   # print(H2.DB)
+      # print (f'H1_y={H1_y}')
+      # print (f'y_data={y_data}')
+
+      err  = Loss.calc(H1_y, y_data)
+
+      loss = Loss.diff(H1_y, y_data)
+      DH1_x = H1.backprop(loss, x_data)
+
+      H1.update()
+
+      print (f'iter={iteration}, loss={loss}')
+      # print (f'H1.Dtheta = {H1.Dtheta}')
+      iteration += 1
+
+   # print(f'H1_theta={H1.theta}')
 
 
-# if __name__ == '__main__':
-#    main()
+if __name__ == '__main__':
+   main()
