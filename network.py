@@ -1,4 +1,4 @@
-from Q_operator import RotateMatrix, RotateMatrixPolar, sigmoid
+from Q_operator import RotateMatrix, RotateMatrixPolar, sigmoid, norm_Q
 import numpy as np
 from enum import Enum
 
@@ -69,11 +69,8 @@ class HiddenLayer:
       # O x 3 x 1
       self.B  = np.random.rand( self.o_dim, 3, 1)
 
-      # O x 3 x 1
-      # self.K = rotate(X)
-      self.K = np.zeros((self.o_dim, 3, 1), dtype=np.float64)
-
-      self.RotateMat = np.zeros((self.o_dim, self.i_dim, 3, 3), dtype=np.float64)
+      # init Output
+      self.clrOutput()
 
       # for bachpropagation
       self.clrDWeight()
@@ -119,6 +116,14 @@ class HiddenLayer:
       if self.useBias:
          self.DB   = np.zeros((self.o_dim, 4, 1), dtype=np.float64)
 
+   def clrOutput(self):
+      # O x 3 x 1
+      # self.K = rotate(X)
+      self.K = np.zeros((self.o_dim, 3, 1), dtype=np.float64)
+      self.Y = np.zeros((self.o_dim, 3, 1), dtype=np.float64)
+
+      self.RotateMat = np.zeros((self.o_dim, self.i_dim, 3, 3), dtype=np.float64)
+
    def getWeight(self):
       return self.theta, self.z, self.B
 
@@ -128,6 +133,8 @@ class HiddenLayer:
 
   # input x in form   I x 3 x 1
    def forward(self, X):
+      self.clrOutput()
+
       for i_out in range(self.o_dim):
          for i_in in range(self.i_dim):
             self.RotateMat[i_out, i_in] = RotateMatrixPolar(self.theta[i_out, i_in])
@@ -201,11 +208,143 @@ class HiddenLayer:
       return DR
 
 
+class HiddenLayer_type0:
+   nth_layer = 0
+   def __init__(self, i_dim, o_dim, next_o_dim, useBias=True):
+      HiddenLayer.nth_layer += 1
+      self.nth_layer = HiddenLayer.nth_layer
+
+      self.useBias = useBias
+
+      self.o_dim = o_dim
+      self.i_dim = i_dim
+
+      # O x I x 4 x 1
+      self.W  = np.random.rand(self.o_dim, self.i_dim, 4, 1)
+
+      # O x 3 x 1
+      self.B  = np.random.rand( self.o_dim, 3, 1)
+
+      self.clrOutPut()
+
+      # for bachpropagation
+      self.clrDWeight()
+
+   def setWeight(self, **kwargs):
+      self.W  = kwargs['W']
+      self.B  = kwargs['B']
+
+   def compile(self, Update_c, ActFunc=ActiveFunct_enum.sigm):
+      self.Update_c = Update_c
+      self.ActFunc  = ActiveFunct(ActFunc)
+
+   def clrDWeight(self):
+      self.DW     = np.zeros((self.o_dim, self.i_dim, 4, 1), dtype=np.float64)
+      if self.useBias:
+         self.DB   = np.zeros((self.o_dim, 3, 1), dtype=np.float64)
+
+
+   def clrOutPut(self):
+      # O x 3 x 1
+      # self.K = rotate(X)
+      self.K = np.zeros((self.o_dim, 3, 1), dtype=np.float64)
+      self.Y = np.zeros((self.o_dim, 3, 1), dtype=np.float64)
+
+      self.RotateMat = np.zeros((self.o_dim, self.i_dim, 3,3), dtype=np.float64)
+      self.norm      = np.zeros((self.o_dim, self.i_dim, 1), dtype=np.float64)
+
+
+   def forward(self, X):
+      self.clrOutPut()
+
+      for i_out in range(self.o_dim):
+         for i_in in range(self.i_dim):
+            self.RotateMat[i_out, i_in] = RotateMatrix(self.W[i_out, i_in])
+            self.norm[i_out, i_in]      = norm_Q(self.W[i_out, i_in])
+            self.K[i_out] = self.K[i_out] + self.norm[i_out, i_in] * ( self.RotateMat[i_out, i_in] @ X[i_in] )
+
+      if self.useBias:
+         self.Y = self.ActFunc.calc(self.K + self.B)
+      else:
+         self.Y = self.ActFunc.calc(self.K)
+
+      return self.Y
+
+   def backprop(self, DY, X):
+      # clear all differential
+      self.clrDWeight()
+
+      DX = np.zeros((self.i_dim, 3, 1), dtype=np.float64)
+
+      # DActFunc = DY * self.ActFunc.calc(self.K) * ( 1 - self.ActFunc.calc(self.K))
+      if self.useBias:
+         DActFunc = DY * self.ActFunc.grad(self.K + self.B)
+      else:
+         DActFunc = DY * self.ActFunc.grad(self.K)
+
+      if self.useBias:
+         self.DB = DActFunc
+
+      for i_out in range(self.o_dim):
+         for i_in in range(self.i_dim):
+
+            W_o_i   = np.reshape( self.W[i_out, i_in], (4,))
+            # print (W_o_i)
+            # print (W_o_i.shape)
+            # a,b,c,d = W_o_i.reshape(1,4)
+
+            a,b,c,d = np.reshape( self.W[i_out, i_in], (4,) )
+            x,y,z   = np.reshape( X[i_in], (3,) )
+
+            # =====>**Da
+            dR_da=((a**3*x+2*(b**2+c**2+d**2)*(-d*y+c*z)+a*(b**2*x+3*(c**2+d**2)*x-2*b*(c*y+d*z)))/(a**2+b**2+c**2+d**2)**(3/2))
+            dG_da=((a**3*y-2*(b**2+c**2+d**2)*(-d*x+b*z)+a*(-2*b*c*x+3*b**2*y+c**2*y+3*d**2*y-2*c*d*z))/(a**2+b**2+c**2+d**2)**(3/2))
+            dB_da=((1/((a**2+b**2+c**2+d**2)**(3/2)))*(-2*c**3*x-2*a*b*d*x+2*b**3*y+2*b*(c**2+d**2)*y-2*c*d*(d*x+a*y)+3*a*c**2*z+a*(a**2+d**2)*z+b**2*(-2*c*x+3*a*z)))
+            # =====>**Db
+            dR_db=((b**3*x+3*b*(c**2+d**2)*x+2*a*b*(d*y-c*z)+2*(c**2+d**2)*(c*y+d*z)+a**2*(b*x+2*c*y+2*d*z))/(a**2+b**2+c**2+d**2)**(3/2))
+            dG_db=((1/((a**2+b**2+c**2+d**2)**(3/2)))*(2*c**3*x-3*b*c**2*y-b*(b**2+d**2)*y+a**2*(2*c*x-3*b*y)-2*a**3*z+2*c*d*(d*x-b*z)-2*a*(b*d*x+(c**2+d**2)*z)))
+            dB_db=((1/((a**2+b**2+c**2+d**2)**(3/2)))*(2*d**3*x+2*a**3*y-2*b*c*d*y+2*a*(b*c*x+(c**2+d**2)*y)-b**3*z-3*b*d**2*z+a**2*(2*d*x-3*b*z)+c**2*(2*d*x-b*z)))
+            # =====>**Dc
+            dR_dc=((1/((a**2+b**2+c**2+d**2)**(3/2)))*(-3*b**2*c*x-c*(c**2+d**2)*x+2*b**3*y+a**2*(-3*c*x+2*b*y)+2*a**3*z+2*b*d*(d*y-c*z)+2*a*(c*d*y+(b**2+d**2)*z)))
+            dG_dc=((1/((a**2+b**2+c**2+d**2)**(3/2)))*(2*b**3*x+2*b*d**2*x+c**3*y+3*c*d**2*y+2*d**3*z+a*c*(-2*d*x+2*b*z)+a**2*(2*b*x+c*y+2*d*z)+b**2*(3*c*y+2*d*z)))
+            dB_dc=((1/((a**2+b**2+c**2+d**2)**(3/2)))*(-2*(a**2+b**2+c**2+d**2)*(a*x-d*y+c*z)-c*(2*(-a*c+b*d)*x+2*(a*b+c*d)*y+(a**2-b**2-c**2+d**2)*z)))
+            # =====>**Dd
+            dR_dd=((1/((a**2+b**2+c**2+d**2)**(3/2)))*(-3*b**2*d*x-d*(c**2+d**2)*x-2*a**3*y+2*b**3*z+a**2*(-3*d*x+2*b*z)+2*b*c*(-d*y+c*z)-2*a*(b**2*y+c*(c*y+d*z))))
+            dG_dd=((1/((a**2+b**2+c**2+d**2)**(3/2)))*(2*(a**2+b**2+c**2+d**2)*(a*x-d*y+c*z)-d*(2*(b*c+a*d)*x+(a**2-b**2+c**2-d**2)*y+2*(-a*b+c*d)*z)))
+            dB_dd=((1/((a**2+b**2+c**2+d**2)**(3/2)))*(2*b**3*x+2*b*c**2*x+2*c**3*y+2*a*d*(c*x-b*y)+3*c**2*d*z+d**3*z+a**2*(2*b*x+2*c*y+d*z)+b**2*(2*c*y+3*d*z)))
+
+            self.DW[i_out,i_in,0,0] = (   DActFunc[i_out,0,0] * dR_da +\
+                                          DActFunc[i_out,1,0] * dG_da +\
+                                          DActFunc[i_out,2,0] * dB_da )/3
+            self.DW[i_out,i_in,1,0] = (   DActFunc[i_out,0,0] * dR_db +\
+                                          DActFunc[i_out,1,0] * dG_db +\
+                                          DActFunc[i_out,2,0] * dB_db )/3
+            self.DW[i_out,i_in,2,0] = (   DActFunc[i_out,0,0] * dR_dc +\
+                                          DActFunc[i_out,1,0] * dG_dc +\
+                                          DActFunc[i_out,2,0] * dB_dc )/3
+            self.DW[i_out,i_in,3,0] = (   DActFunc[i_out,0,0] * dR_dd +\
+                                          DActFunc[i_out,1,0] * dG_dd +\
+                                          DActFunc[i_out,2,0] * dB_dd )/3
+
+            tmp_0 = np.transpose(DActFunc[i_out] * self.RotateMat[i_out, i_in])
+            tmp_1 = np.average(tmp_0 , axis=1).reshape(3,1)
+            DX[i_in] += tmp_1
+
+      DX = DX / self.o_dim
+
+      return DX
+
+   def update (self):
+      self.W = self.Update_c.update(self.W, self.DW)
+      if self.useBias:
+         self.B  = self.Update_c.update(self.B, self.DB)
+
 
 
 ##############################################################################################################################
 def main():
    up = Updater(Updater_enum.SGD, r=0.01)
+   # H1 = HiddenLayer_type0(9, 1, 1, useBias=True)
    H1 = HiddenLayer(9, 1, 1, useBias=True)
 
    H1.compile(Update_c=up, ActFunc=ActiveFunct_enum.sigm)
@@ -227,7 +366,10 @@ def main():
 
    x_data = np.random.rand(9,3,1)
    y_data = np.random.rand(1,3,1)
-   while iteration<10:
+
+   max_i = 100000
+
+   while iteration<max_i:
 
 
       H1_y = H1.forward(x_data)
@@ -238,12 +380,15 @@ def main():
       err  = Loss.calc(H1_y, y_data)
 
       loss = Loss.diff(H1_y, y_data)
+      # print (f'loss ={loss}')
       DH1_x = H1.backprop(loss, x_data)
 
       H1.update()
 
-      print (f'iter={iteration}, loss={loss}')
-      # print (f'H1.Dtheta = {H1.Dtheta}')
+      if iteration in range(0, max_i, 10):
+         print (f'iter={iteration}, err={err}')
+      # print (f'H1.DB = {H1.DB}')
+      # print (f'H1.K = {H1.K}')
       iteration += 1
 
    # print(f'H1_theta={H1.theta}')

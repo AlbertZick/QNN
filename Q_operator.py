@@ -6,7 +6,7 @@ def sigmoid(x):
   return 1/(1 + np.exp(-x))
 
 
-def abs_Q(q):
+def norm_Q(q):
   return math.sqrt( q[0,0]*q[0,0] + q[1,0]*q[1,0] + q[2,0]*q[2,0] + q[3,0]*q[3,0] )
 
 
@@ -60,7 +60,7 @@ def mul_Q(a, b):
 
 def RotateMatrix(x):
   # https://en.wikipedia.org/wiki/Quaternions_and_spatial_rotation
-  s = 1 / ( abs_Q(x)*abs_Q(x) )
+  s = 1 / ( norm_Q(x)*norm_Q(x) )
   R = np.zeros((3,3), dtype=np.float64)
   r, i, j, k = 0, 1, 2, 3
 
