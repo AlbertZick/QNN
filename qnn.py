@@ -1,6 +1,9 @@
-from network import Updater, HiddenLayer, ActiveFunct_enum, Updater_enum, LossFunc
-from DataLoader import viewImage, DataLoader, Printer, DataConverter
-from math import floor
+from   lib.network import Updater, HiddenLayer, ActiveFunct_enum, Updater_enum, LossFunc
+from   lib.DataLoader import viewImage, DataLoader, Printer, DataConverter
+from   lib  import graph
+
+from   math import floor
+import keyboard
 import datetime
 import numpy as np
 import sys, os
@@ -23,10 +26,10 @@ def train(trainFile, evalFile, testFile, initFile, save=True):
    window_w   = 3
    eval_delay = 5
 
-   eval_cntr = 1
+   eval_cntr  = 1
 
-   eval_err  = np.array([None])
-   train_err = np.array([None])
+   eval_err   = np.array([None])
+   train_err  = np.array([None])
 
    def _appendArray(arr, val, debug=False):
       if debug:
@@ -42,14 +45,15 @@ def train(trainFile, evalFile, testFile, initFile, save=True):
 
    # create model
    up = Updater(Updater_enum.SGD, r=0.001)
-   H1 = HiddenLayer(9, 5, 1, useBias=True)
+   H1 = HiddenLayer(window_h*window_w, 5, 1, useBias=True)
    H2 = HiddenLayer(5, 1, 1, useBias=True)
+
+   H1.connect(H2)
 
    H1.compile(Update_c=up, ActFunc=ActiveFunct_enum.sigm)
    H2.compile(Update_c=up, ActFunc=ActiveFunct_enum.sigm)
 
    Loss = LossFunc()
-
 
    # Get data
    trainSet = DataLoader(trainFile, criteria='F10')

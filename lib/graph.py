@@ -1,6 +1,5 @@
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
-# from matplotlib import style
 import threading
 import time
 import rawpy
@@ -83,9 +82,9 @@ def animateGraph(Diction):
    ani = animation.FuncAnimation(fig, func=animate, interval=1000, fargs=(fig, Subplot, Diction))
    plt.show()
    # plt.draw()
-   while Diction['Running']:
-      print ('This thread')
-      time.sleep(1)
+   # while Diction['Running']:
+   #    print ('This thread')
+   #    time.sleep(1)
 
 class Graph:
    def __init__(self, DataDict):
@@ -96,7 +95,6 @@ class Graph:
    def crtGraph(self):
       self.Thr = threading.Thread(target=animateGraph, args=(self.DataDict,))
       self.Thr.start()
-
 
 
 

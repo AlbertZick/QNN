@@ -56,22 +56,47 @@ class NeuralCell:
 
    def __init__(self):
       NeuralCell.cell_id += 1
-      self.cell_id = NeuralCell.cell_id
+      self.cell_id  = NeuralCell.cell_id
+      self.type     = 'Unknown'
+      self.nextCell = -1
+      self.preCell  = -1
 
    def crtModel(modelDict):
       if modelDict['type'] == 'trigonometric_QCNN':
-         pass
+         model = trigonometric_QCNN(1,1,1,useBias=True)
+
       if modelDict['type'] == 'algebric_QCNN':
-         pass
+         model = algebric_QCNN(1,1,useBias=True)
+         
+      model.loadModel(modelDict)
+      return model
+
+   def model2Dict(self, RsltDict=None):
+      if RsltDict == None:
+         RsltDict = {}
+
+      RsltDict['cell_id']  = self.cell_id
+      RsltDict['nextCell'] = self.nextCell
+      RsltDict['preCell']  = self.preCell
+      return RsltDict
 
 
-class HiddenLayer (NeuralCell):
+   def loadModel(self, modelDict):
+      self.cell_id  = modelDict['cell_id']
+      self.type     = modelDict['type']
+      self.nextCell = modelDict['nextCell']
+      self.preCell  = modelDict['preCell']
+
+
+   def connect(self, cell):
+      self.nextModel = cell.cell_id
+      cell.preModel  = self.cell_id
+
+
+class trigonometric_QCNN (NeuralCell):
    def __init__(self, i_dim, o_dim, next_o_dim, useBias=True):
       super().__init__()
       self.type = 'trigonometric_QCNN'
-
-      # NeuralCell.cell_id += 1
-      # self.cell_id = NeuralCell.cell_id
 
       self.useBias = useBias
 
@@ -120,20 +145,28 @@ class HiddenLayer (NeuralCell):
             File.write(f'[{self.B[i,0,0]}  {self.B[i,1,0]}  {self.B[i,2,0]}]\n')
 
 
-   def model2Dict(self):
-      rst = {}
-      rst['cell_id'] = self.cell_id
-      rst['preConnect']  = -1
-      rst['postConnect'] = -1
-      rst['type']    = self.type
-      rst['useBias'] = self.useBias
-      rst['o_dim']   = self.o_dim
-      rst['i_dim']   = self.i_dim
-      rst['theta']   = self.theta.tolist()
-      rst['z']       = self.z.tolist()
-      rst['B']       = self.B.tolist()
-      return rst
+   def model2Dict(self, RsltDict=None):
+      if RslDict == None:
+         RsltDict = super().model2Dict()
 
+      RsltDict['type']    = self.type
+      RsltDict['useBias'] = self.useBias
+      RsltDict['o_dim']   = self.o_dim
+      RsltDict['i_dim']   = self.i_dim
+      RsltDict['theta']   = self.theta.tolist()
+      RsltDict['z']       = self.z.tolist()
+      RsltDict['B']       = self.B.tolist()
+      return RsltDict
+
+   def loadModel(self, modelDict):
+      super().loadModel(modelDict)
+      self.type    = modelDict['type']
+      self.useBias = modelDict['useBias']
+      self.o_dim   = modelDict['o_dim']
+      self.i_dim   = modelDict['i_dim']
+      self.theta   = np.array(modelDict['theta'], dtype=np.float64)
+      self.z       = np.array(modelDict['z'], dtype=np.float64)
+      self.B       = np.array(modelDict['B'], dtype=np.float64)
 
    def LoadModelFromFile(self):
       pass
@@ -245,8 +278,8 @@ class HiddenLayer (NeuralCell):
 class algebric_QCNN(NeuralCell):
    def __init__(self, i_dim, o_dim, useBias=True):
       super().__init__()
-      # HiddenLayer.cell_id += 1
-      # self.cell_id = HiddenLayer.cell_id
+      # trigonometric_QCNN.cell_id += 1
+      # self.cell_id = trigonometric_QCNN.cell_id
       self.type = 'algebric_QCNN'
 
       self.useBias = useBias
@@ -269,19 +302,26 @@ class algebric_QCNN(NeuralCell):
       self.W  = kwargs['W']
       self.B  = kwargs['B']
 
-   def model2Dict(self):
-      rst = {}
-      rst['cell_id'] = self.cell_id
-      rst['preConnect']  = -1
-      rst['postConnect'] = -1
-      rst['type']    = self.type
-      rst['useBias'] = self.useBias
-      rst['o_dim']   = self.o_dim
-      rst['i_dim']   = self.i_dim
-      rst['W']       = self.W.tolist()
-      rst['B']       = self.B.tolist()
-      return rst
+   def model2Dict(self, RsltDict=None):
+      if RslDict == None:
+         RsltDict = super().model2Dict()
 
+      RsltDict['type']    = self.type
+      RsltDict['useBias'] = self.useBias
+      RsltDict['o_dim']   = self.o_dim
+      RsltDict['i_dim']   = self.i_dim
+      RsltDict['W']       = self.W.tolist()
+      RsltDict['B']       = self.B.tolist()
+      return RsltDict
+
+   def loadModel(self, modelDict):
+      super().loadModel(modelDict)
+      self.type    = modelDict['type']
+      self.useBias = modelDict['useBias']
+      self.o_dim   = modelDict['o_dim']
+      self.i_dim   = modelDict['i_dim']
+      self.W       = np.array( modelDict['W'], dtype=np.float64)
+      self.B       = np.array( modelDict['B'], dtype=np.float64)
 
    def compile(self, Update_c, ActFunc=ActiveFunct_enum.sigm):
       self.Update_c = Update_c
@@ -394,7 +434,7 @@ class algebric_QCNN(NeuralCell):
 def main():
    up = Updater(Updater_enum.SGD, r=0.01)
    # H1 = algebric_QCNN(9, 1, 1, useBias=True)
-   H1 = HiddenLayer(9, 1, 1, useBias=True)
+   H1 = trigonometric_QCNN(9, 1, 1, useBias=True)
 
    H1.compile(Update_c=up, ActFunc=ActiveFunct_enum.sigm)
 
