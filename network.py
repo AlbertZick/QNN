@@ -1,6 +1,9 @@
 from Q_operator import RotateMatrix, RotateMatrixPolar, sigmoid, norm_Q
 import numpy as np
 from enum import Enum
+import json
+
+
 
 class Updater_enum(Enum):
    Adam, SGD = range(2)
@@ -48,11 +51,27 @@ class LossFunc:
       if self.Type ==  LossFunc_enum.diff:
          return Predict - Real
 
-class HiddenLayer:
-   nth_layer = 0
+class NeuralCell:
+   cell_id = 0
+
+   def __init__(self):
+      NeuralCell.cell_id += 1
+      self.cell_id = NeuralCell.cell_id
+
+   def crtModel(modelDict):
+      if modelDict['type'] == 'trigonometric_QCNN':
+         pass
+      if modelDict['type'] == 'algebric_QCNN':
+         pass
+
+
+class HiddenLayer (NeuralCell):
    def __init__(self, i_dim, o_dim, next_o_dim, useBias=True):
-      HiddenLayer.nth_layer += 1
-      self.nth_layer = HiddenLayer.nth_layer
+      super().__init__()
+      self.type = 'trigonometric_QCNN'
+
+      # NeuralCell.cell_id += 1
+      # self.cell_id = NeuralCell.cell_id
 
       self.useBias = useBias
 
@@ -76,13 +95,13 @@ class HiddenLayer:
       self.clrDWeight()
 
    def WrtModel(self, name):
-      File = open(f'{name}_L{self.nth_layer}.txt', 'w')
+      File = open(f'{name}_L{self.cell_id}.txt', 'w')
       if self.useBias:
          File.write('useBias=True\n')
       else:
          File.write('useBias=False\n')
 
-      File.write(f'layer={self.nth_layer}\no_dim={self.o_dim}\ni_dim={self.i_dim}\n')
+      File.write(f'layer={self.cell_id}\no_dim={self.o_dim}\ni_dim={self.i_dim}\n')
       File.write(f'theta=\n')
       for i in range(len(self.theta)):
          for j in range(len(self.theta[0])):
@@ -99,6 +118,21 @@ class HiddenLayer:
          File.write(f'B=\n')
          for i in range(self.o_dim):
             File.write(f'[{self.B[i,0,0]}  {self.B[i,1,0]}  {self.B[i,2,0]}]\n')
+
+
+   def model2Dict(self):
+      rst = {}
+      rst['cell_id'] = self.cell_id
+      rst['preConnect']  = -1
+      rst['postConnect'] = -1
+      rst['type']    = self.type
+      rst['useBias'] = self.useBias
+      rst['o_dim']   = self.o_dim
+      rst['i_dim']   = self.i_dim
+      rst['theta']   = self.theta.tolist()
+      rst['z']       = self.z.tolist()
+      rst['B']       = self.B.tolist()
+      return rst
 
 
    def LoadModelFromFile(self):
@@ -162,7 +196,7 @@ class HiddenLayer:
          for i_out in range(self.o_dim):
 
             ## Test code ################################################################################################################
-            if self.nth_layer == 2:
+            if self.cell_id == 2:
                pass
                # print(f'calc={self.DerivativeMat(self.theta[i_out, i_in]) @ X[i_in]}')
                # print(f'z={self.z[i_out, i_in]}')
@@ -208,11 +242,12 @@ class HiddenLayer:
       return DR
 
 
-class HiddenLayer_type0:
-   nth_layer = 0
-   def __init__(self, i_dim, o_dim, next_o_dim, useBias=True):
-      HiddenLayer.nth_layer += 1
-      self.nth_layer = HiddenLayer.nth_layer
+class algebric_QCNN(NeuralCell):
+   def __init__(self, i_dim, o_dim, useBias=True):
+      super().__init__()
+      # HiddenLayer.cell_id += 1
+      # self.cell_id = HiddenLayer.cell_id
+      self.type = 'algebric_QCNN'
 
       self.useBias = useBias
 
@@ -233,6 +268,20 @@ class HiddenLayer_type0:
    def setWeight(self, **kwargs):
       self.W  = kwargs['W']
       self.B  = kwargs['B']
+
+   def model2Dict(self):
+      rst = {}
+      rst['cell_id'] = self.cell_id
+      rst['preConnect']  = -1
+      rst['postConnect'] = -1
+      rst['type']    = self.type
+      rst['useBias'] = self.useBias
+      rst['o_dim']   = self.o_dim
+      rst['i_dim']   = self.i_dim
+      rst['W']       = self.W.tolist()
+      rst['B']       = self.B.tolist()
+      return rst
+
 
    def compile(self, Update_c, ActFunc=ActiveFunct_enum.sigm):
       self.Update_c = Update_c
@@ -344,52 +393,52 @@ class HiddenLayer_type0:
 ##############################################################################################################################
 def main():
    up = Updater(Updater_enum.SGD, r=0.01)
-   # H1 = HiddenLayer_type0(9, 1, 1, useBias=True)
+   # H1 = algebric_QCNN(9, 1, 1, useBias=True)
    H1 = HiddenLayer(9, 1, 1, useBias=True)
 
    H1.compile(Update_c=up, ActFunc=ActiveFunct_enum.sigm)
 
    Loss = LossFunc()
 
-   # print ('== H1 ===========')
-   # print (H1.theta)
-   # print (H1.z)
-   # print (H1.B)
-   # theta_11, z_11, b_11 = H1.theta, H1.z, H1.B
-   # print ('== H2 ===========')
-   # print (H2.theta)
-   # print (H2.z)
-   # print (H2.B)
-   # theta_21, z_21, b_21 = H2.theta, H2.z, H2.B
+   json_ob = json.dumps(H1.model2Dict())
 
-   iteration = 0
+   print (json_ob)
 
-   x_data = np.random.rand(9,3,1)
-   y_data = np.random.rand(1,3,1)
+   File = open('model.txt', 'w')
+   File.write(json_ob)
+   File.close()
 
-   max_i = 100000
+   File = open('model.txt', 'r')
+   data = json.load(File)
 
-   while iteration<max_i:
+   # iteration = 0
+
+   # x_data = np.random.rand(9,3,1)
+   # y_data = np.random.rand(1,3,1)
+
+   # max_i = 100000
+
+   # while iteration<max_i:
 
 
-      H1_y = H1.forward(x_data)
+   #    H1_y = H1.forward(x_data)
 
-      # print (f'H1_y={H1_y}')
-      # print (f'y_data={y_data}')
+   #    # print (f'H1_y={H1_y}')
+   #    # print (f'y_data={y_data}')
 
-      err  = Loss.calc(H1_y, y_data)
+   #    err  = Loss.calc(H1_y, y_data)
 
-      loss = Loss.diff(H1_y, y_data)
-      # print (f'loss ={loss}')
-      DH1_x = H1.backprop(loss, x_data)
+   #    loss = Loss.diff(H1_y, y_data)
+   #    # print (f'loss ={loss}')
+   #    DH1_x = H1.backprop(loss, x_data)
 
-      H1.update()
+   #    H1.update()
 
-      if iteration in range(0, max_i, 10):
-         print (f'iter={iteration}, err={err}')
-      # print (f'H1.DB = {H1.DB}')
-      # print (f'H1.K = {H1.K}')
-      iteration += 1
+   #    if iteration in range(0, max_i, 10):
+   #       print (f'iter={iteration}, err={err}')
+   #    # print (f'H1.DB = {H1.DB}')
+   #    # print (f'H1.K = {H1.K}')
+   #    iteration += 1
 
    # print(f'H1_theta={H1.theta}')
 

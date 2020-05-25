@@ -4,54 +4,6 @@ import matplotlib.pyplot as plt
 import os
 import random
 
-class Printer:
-   def __init__(self, logFile='log.log', max_len=120):
-      self.max_len = max_len
-      self.logFile = logFile
-      self.crtlogFile = True
-      self.nextLine = True
-
-   def show(self, data, new=True):
-      # print (''.join([' ']*self.max_len), end='\r')
-      String = str(data)
-      if new:
-         if self.nextLine:
-            print('',end='\n')
-            self.nextLine = False
-
-         print(String, end='\n')
-         if self.crtlogFile:
-            file = open(self.logFile, 'w')
-            file.write(String+'\n')
-            file.close()
-            self.crtlogFile = False
-         else:
-            file = open(self.logFile, 'a')
-            file.write(String+'\n')
-            file.close()
-
-      else:
-         print (String + ''.join([' ']*(self.max_len-len(String))), end='\r')
-         self.nextLine = True
-
-
-def viewImage(data, save=False):
-   fig  = plt.figure()
-   plot = fig.add_subplot(1, 2, 1)
-   plot.imshow(data[0])
-   plot.set_title('X image')
-
-   plot = fig.add_subplot(1, 2, 2)
-   plot.imshow(data[1])
-   plot.set_title('Y image')
-   if True:
-      name, _ = os.path.splitext(data[2].split('/')[-1])
-      name = name + '.png'
-      fig.savefig(name)
-
-   fig.show()
-   plt.show()
-
 class DataLoader:
    def __init__(self, path2LstFile, shuffle=False, criteria=None):
       self.idx = 0

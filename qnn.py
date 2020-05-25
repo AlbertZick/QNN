@@ -69,8 +69,8 @@ def train(trainFile, evalFile, testFile, initFile, save=True):
          del trainSet_d
 
          ## Test code ################################################################################################################
-         trainData.max_r_ptr = 4
-         trainData.max_c_ptr = 4
+         # trainData.max_r_ptr = 4
+         # trainData.max_c_ptr = 4
          ##############################################################################################################################
          
          x_data, y_data = trainData.getNextMatrix()
@@ -83,7 +83,7 @@ def train(trainFile, evalFile, testFile, initFile, save=True):
 
             ## Test code ################################################################################################################
             # Prt.show(f'x_data={x_data}')
-            Prt.show(f'H2.theta={H2.theta}')
+            # Prt.show(f'H2.theta={H2.theta}')
             ##############################################################################################################################
 
             # forward
@@ -105,11 +105,11 @@ def train(trainFile, evalFile, testFile, initFile, save=True):
             H2.update()
 
             ## Test code ################################################################################################################
-            Prt.show(f'H2.theta={H2.theta}')
-            Prt.show(f'H2.Dtheta={H2.Dtheta}')
-            Prt.show(f'loss={loss}')
-            if eval_cntr == 4:
-               os._exit(0)
+            # Prt.show(f'H2.theta={H2.theta}')
+            # Prt.show(f'H2.Dtheta={H2.Dtheta}')
+            # Prt.show(f'loss={err}')
+            # if eval_cntr == 4:
+               # os._exit(0)
             ##############################################################################################################################
 
             ## Test code ################################################################################################################
@@ -150,8 +150,8 @@ def train(trainFile, evalFile, testFile, initFile, save=True):
          evalData  = DataConverter(X_data=eval_d[0], Y_data=eval_d[1], w=window_w, h=window_h)
          
          ## Test code ################################################################################################################
-         evalData.max_r_ptr = 4
-         evalData.max_c_ptr = 4
+         # evalData.max_r_ptr = 4
+         # evalData.max_c_ptr = 4
          ##############################################################################################################################
 
          x_data, y_data = evalData.getNextMatrix()
