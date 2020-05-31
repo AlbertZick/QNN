@@ -1,4 +1,4 @@
-from Q_operator import RotateMatrix, RotateMatrixPolar, sigmoid, norm_Q
+from lib.Q_operator import RotateMatrix, RotateMatrixPolar, sigmoid, norm_Q
 import numpy as np
 from enum import Enum
 import json
@@ -13,6 +13,14 @@ class Updater:
       self.UpdateType = UpdateType
       if self.UpdateType == Updater_enum.SGD:
          self.r = kwargs['r']
+
+   def model2Dict(self):
+      rst = {}
+      rst['UpdateType'] = self.UpdateType
+      if self.UpdateType == Updater_enum.SGD:
+         rst['r'] = self.r
+
+      return rst
 
    def update(self, X, DX):
       if self.UpdateType == Updater_enum.SGD:
@@ -146,7 +154,7 @@ class trigonometric_QCNN (NeuralCell):
 
 
    def model2Dict(self, RsltDict=None):
-      if RslDict == None:
+      if RsltDict == None:
          RsltDict = super().model2Dict()
 
       RsltDict['type']    = self.type
@@ -435,6 +443,8 @@ def main():
    up = Updater(Updater_enum.SGD, r=0.01)
    # H1 = algebric_QCNN(9, 1, 1, useBias=True)
    H1 = trigonometric_QCNN(9, 1, 1, useBias=True)
+   H2 = trigonometric_QCNN(9, 1, 1, useBias=True)
+   H1.connect(H2)
 
    H1.compile(Update_c=up, ActFunc=ActiveFunct_enum.sigm)
 
